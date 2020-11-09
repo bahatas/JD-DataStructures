@@ -44,7 +44,7 @@ public class MyQueue<T> {
             size++;
         }
 
-        public T dequeue() {
+        public  T dequeue() {
             T t;
             if (isEmpty())
                 throw new NoSuchElementException();
