@@ -13,6 +13,6 @@ This directory contains following Data Structures and Algorithms implementations
 	c. Reverse a string with stack.
 4.  Queues
 	a. Basic Queue implementation with a Linked List
-	b. 
+	b. Reverse First K elements of Queue
 
 5.  HashTables & Sets
