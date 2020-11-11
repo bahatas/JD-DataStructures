@@ -12,7 +12,7 @@ public class ExpressionBalanceCheck {
     }
 
     public static boolean balanceCheck(String expr){
-        MyStack<Character> mystack=new MyStack<Character>();
+        MyStack<Character> myStack=new MyStack<Character>();
 
         for (int i=0; i<expr.length();i++){
             Character ch=expr.charAt(i);
@@ -21,35 +21,35 @@ public class ExpressionBalanceCheck {
             if (ch == '(' || ch == '[' || ch == '{')
             {
                 // Push the element in the stack
-                mystack.push(ch);
+                myStack.push(ch);
                 continue;
             }
             // IF current current character is not opening
             // bracket, then it must be closing. So stack
             // cannot be empty at this point.
-            if (mystack.isEmpty())
+            if (myStack.isEmpty())
                 return false;
             char match;
             switch (ch) {
                 case ')':
-                    match = mystack.pop();
+                    match = myStack.pop();
                     if (match == '{' || match == '[')
                         return false;
                     break;
 
                 case '}':
-                    match = mystack.pop();
+                    match = myStack.pop();
                     if (match == '(' || match == '[')
                         return false;
                     break;
 
                 case ']':
-                    match = mystack.pop();
+                    match = myStack.pop();
                     if (match == '(' || match == '{')
                         return false;
                     break;
             }
         }
-        return (mystack.isEmpty());
+        return (myStack.isEmpty());
     }
 }

@@ -39,11 +39,8 @@ public class MyStack<T> {
                 top.next = node;
                 top = node;
             }
-
             size++;
         }
-
-
 
         public boolean isEmpty() {
             return bottom == null;
@@ -67,7 +64,6 @@ public class MyStack<T> {
                 top= previous;
                 top.next = null;
             }
-
             size--;
             return peekNode.value;
         }

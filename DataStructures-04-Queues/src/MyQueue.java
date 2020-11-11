@@ -1,36 +1,21 @@
 import java.util.NoSuchElementException;
 
 public class MyQueue<T> {
-
+    //Node Declarations
         private class Node {
             private T value;
             private Node next;
-
-            public T getValue() {
-                return value;
-            }
-
-            public void setValue(T value) {
-                this.value = value;
-            }
-
-            public Node getNext() {
-                return next;
-            }
-
-            public void setNext(Node next) {
-                this.next = next;
-            }
-
             public Node(T value) {
                 this.value = value;
+                this.next=null;
             }
-        }
+        } // Node class end
 
-        private Node front;
-        private Node back;
-        private int size;
+    private Node front;
+    private Node back;
+    private int size;
 
+        //add after last
         public void enqueue(T item) {
             var node = new Node(item);
 
@@ -48,18 +33,18 @@ public class MyQueue<T> {
             T t;
             if (isEmpty())
                 throw new NoSuchElementException();
-
+            // if there is only one item in queue
             if (front == back)
             {t=front.value;
                 front = back = null;}
             else {
                 t=front.value;
                 var second = front.next;
-                front.next = null;
+                front.next = null;// break the link
                 front = second;
             }
-
-            size--;return t;
+            size--;
+            return t;
         }
 
 
@@ -83,7 +68,7 @@ public class MyQueue<T> {
             return indexOf(item) != -1;
         }
 
-
+       // not applicable to current problems just keeping for future
         public void addfront(T item) {
             var node = new Node(item);
 
@@ -96,7 +81,7 @@ public class MyQueue<T> {
 
             size++;
         }
-
+    // not applicable to current problems just keeping for future
         public void removeback() {
             if (isEmpty())
                 throw new NoSuchElementException();
@@ -108,7 +93,6 @@ public class MyQueue<T> {
                 back = previous;
                 back.next = null;
             }
-
             size--;
         }
 
