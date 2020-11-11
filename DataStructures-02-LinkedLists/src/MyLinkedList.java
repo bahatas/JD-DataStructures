@@ -34,6 +34,7 @@ public class MyLinkedList {
             }
             size++;
         }
+
         public void deleteLast(){
             if (isEmpty()) throw new NoSuchElementException();
             System.out.println("Deleting last :"+ last.value);
