@@ -6,6 +6,6 @@ public class GetKthNodeFromTheLast {
         for(int j=1; j<=10;j++) myLinkedList.addLast(j);
         myLinkedList.printLinkedList();
 
-        /
+
     }
 }
