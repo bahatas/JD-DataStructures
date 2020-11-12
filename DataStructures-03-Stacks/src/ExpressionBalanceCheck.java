@@ -16,7 +16,7 @@ public class ExpressionBalanceCheck {
 
         for (int i=0; i<expr.length();i++){
             Character ch=expr.charAt(i);
-            if (ch != '(' || ch != '[' || ch != '{'|| ch != '}' || ch != ')' || ch != ']') continue;
+            if (ch != '(' && ch != '[' && ch != '{'&& ch != '}' && ch != ')' && ch != ']') continue;
 
             if (ch == '(' || ch == '[' || ch == '{')
             {
