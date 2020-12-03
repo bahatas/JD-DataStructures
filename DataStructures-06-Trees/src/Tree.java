@@ -68,7 +68,18 @@ public class Tree {
         System.out.print(root.value+", ");
 
     }
-
+    public boolean findValue(int value) {
+        Node current = root;
+        while (current != null) {
+            if (value < current.value)
+                current = current.leftChild;
+            else if (value > current.value)
+                current = current.rightChild;
+            else
+                return true;
+        }
+        return false;
+    }
 
 
 }
