@@ -6,5 +6,11 @@ public class MainAppTrees {
         for (int i = 0; i < 11; i++) myTree.insert(numberArray[i]);
         System.out.println("PreOrder Traversal Tree");
         myTree.traversePreOrder();
+        System.out.println();
+        System.out.println("InOrder Traversal Tree");
+        myTree.traverseInOrder();
+        System.out.println();
+        System.out.println("PostOrder Traversal Tree");
+        myTree.traversePostOrder();
     }
 }
