@@ -16,3 +16,19 @@ This directory contains following Data Structures and Algorithms implementations
 	b. Reverse First K elements of Queue
 
 5.  HashTables & Sets
+	a. Find first non-repeating character
+	b. Find first repeating character
+	
+6. Tree
+	a. Basic Tree Implementation using Linked Lists
+    b. Insertion to a tree
+    c. Traverse a tree Pre-Order
+    d. Traverse a tree In-Order 
+    e. Traverse a tree Post-Order 
+    f. Breadth First Traversal
+7. Heap
+	a. Basic Implementation of Heap Data Structure with an array
+    b. Insertion of a node and bubbling up/down a Heap
+8. Graphs
+	a. Dijkstra Shortest Path Algorithm
+   
