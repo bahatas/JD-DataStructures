@@ -21,7 +21,7 @@ public class DijkstraMainApp {
         // From NY to...
         t.addEdge (4,5,2);
         //System.out.println("Edges of the Graph :");
-        //t.print();
+        t.print();
 
         final int [] pred = Dijkstra.dijkstra (t, 0);
 
