@@ -4,7 +4,7 @@ public class MyQuickSort {
     }
 
     private void sort(int[] array, int start, int end) {
-        if (start >= end)
+        if (start >= end) // termination
             return;
 
         var boundary = partition(array, start, end);
