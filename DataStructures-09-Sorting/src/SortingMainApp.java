@@ -6,8 +6,8 @@ public class SortingMainApp {
         //var quickSort= new MyQuickSort();
         //quickSort.sort(myarray);
         //System.out.println(Arrays.toString(myarray));
-        var mybubbleSort=new MyBubbleSort();
-        System.out.println(Arrays.toString(mybubbleSort.bubbleSort(myarray)));
+        var myselectionSort=new MySelectionSort();
+        System.out.println(Arrays.toString(myselectionSort.selectionSort(myarray)));
     }
 
 }
