@@ -6,8 +6,10 @@ public class SortingMainApp {
         //var quickSort= new MyQuickSort();
         //quickSort.sort(myarray);
         //System.out.println(Arrays.toString(myarray));
-        var myselectionSort=new MySelectionSort();
-        System.out.println(Arrays.toString(myselectionSort.selectionSort(myarray)));
+        var myMergeSort=new MyMergeSort();
+        myMergeSort.mergeSort(myarray);
+        System.out.println(Arrays.toString(myarray));
+
     }
 
 }
