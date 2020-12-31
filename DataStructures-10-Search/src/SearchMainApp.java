@@ -6,5 +6,9 @@ public class SearchMainApp {
         System.out.println("Linear Search : " +mylinearsearch.linearSearch(myarray,112));
         var mybinarysearchrec=new MyBinarySearchRec();
         System.out.println("Rec Bin Search : " +mybinarysearchrec.binarySearchRec(myarray,112));
+        var mybinarysearchite=new MyBinarySearchIterative();
+        System.out.println("Ite Bin Search : " +mybinarysearchite.binSearchIterative(myarray,112));
+        var myternarysearch=new MyTernarySearch();
+        System.out.println("Ternary Search : " +myternarysearch.ternarySearch(myarray,112));
     }
 }
