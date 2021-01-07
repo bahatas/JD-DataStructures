@@ -38,6 +38,7 @@ public class TestAppForLinearSearch {
         }
         double averageLinSearch = sum / linearSearchResults.length;
         System.out.format("The average of Linear Search is: %.2f", averageLinSearch);
+
         sum=0;
         for (double num: frontBackSearchResults) {
             sum += num;
