@@ -71,7 +71,25 @@ public class MyLinkedList {
                 last=previous;
             }
         }
-
+    public  void removeKthNodeFromEnd(int k) {
+        Node prevDelete=null;
+        if (isEmpty()) throw new IllegalStateException();
+        var a = first;
+        var b = first;
+        for (int i = 0; i < k-1 ; i++) {
+            b = b.next;
+            if (b == null)
+                throw new IllegalArgumentException();
+        }       while (b.next != null) {
+            prevDelete=a;
+            a = a.next;
+            b = b.next;
+        }
+        if (a==first) { first=first.next; a.next=null;size--;} else {
+        prevDelete.next=a.next;
+        a.next=null;
+        size--;}
+    }
         public void printLinkedList() {
             if (isEmpty())
                 throw new IllegalStateException();
