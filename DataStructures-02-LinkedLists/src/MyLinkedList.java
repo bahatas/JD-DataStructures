@@ -130,6 +130,17 @@ public class MyLinkedList {
         }
         return a.value;
     }
+    public void removeDuplicates(){
+        var current = first;
+        while(current!=null ){
+            var nextDifferentNode=current.next;
+            while(nextDifferentNode!=null && nextDifferentNode.value==current.value )
+                nextDifferentNode=nextDifferentNode.next;
+
+            current.next=nextDifferentNode;
+            current=nextDifferentNode;
+        }
+    }
     public void printMiddle() {
         if (isEmpty())
             throw new IllegalStateException();
