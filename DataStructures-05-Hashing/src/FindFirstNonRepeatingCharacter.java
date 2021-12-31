@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ public class FindFirstNonRepeatingCharacter {
     public static void main(String[] args) {
         System.out.println(findFirstNonRepeatingChar("a green apple"));
     }
-    public static  char findFirstNonRepeatingChar(@NotNull String str) {
+    public static  char findFirstNonRepeatingChar(String str) {
         Map<Character, Integer> map = new HashMap<>();
         int count=0;
         var chars = str.toCharArray();

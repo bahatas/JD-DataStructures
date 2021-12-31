@@ -3,7 +3,7 @@ package review;
 class Tree {
 
     //Nested Node class
-}
+
 
 class Node {
     private Node leftChild;
@@ -14,11 +14,11 @@ class Node {
         this.value = value;
     }
 
-
+}
     private Node root;
 
     //My insert method
-    private void insert(int value) {
+    public void insert(int value) {
 
         Node node = new Node(value);
 
@@ -36,23 +36,24 @@ class Node {
                 if (current.leftChild == null) {
                     current.leftChild = node;
                     break;
-                } else {
-                    current = current.leftChild;
                 }
+                    current = current.leftChild;
             } else {
                 if (current.rightChild == null) {
                     current.rightChild = node;
 
-                } else {
-                    current = current.rightChild;
+                    break;
                 }
+                    current = current.rightChild;
+
             }
         }
     }
 
-    //PRE ORDER
-
-    // Root -> Left -> Right
+    /**
+     * PRE ORDER
+     * Root -> Left -> Right
+     */
 
     public void traversePreOrder() {
         traversePreOrder(root);
@@ -68,5 +69,20 @@ class Node {
     }
 
 
+    /**
+     * IN ORDER
+     * LEFT -> ROOT -> RIGHT
+     */
+
+    public void traverseInOrder(){
+        traverseInOrder(root);
+    }
+
+    private void traverseInOrder(Node root){
+        if(root == null ) return;
+        traverseInOrder(root.leftChild);
+        System.out.print(root.value + ",");
+        traverseInOrder(root.rightChild);
+    }
 
 }
