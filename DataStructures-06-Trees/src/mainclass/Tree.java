@@ -1,7 +1,9 @@
+package mainclass;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tree {
+ class Tree {
     // Nested Node Class
     private class Node {
         private Node leftChild;

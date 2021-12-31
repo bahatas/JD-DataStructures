@@ -19,8 +19,8 @@ This directory contains following Data Structures and Algorithms implementations
 	a. Find first non-repeating character
 	b. Find first repeating character
 	
-6. Tree
-	a. Basic Tree Implementation using Linked Lists
+6. mainclass.Tree
+	a. Basic mainclass.Tree Implementation using Linked Lists
     b. Insertion to a tree
     c. Traverse a tree Pre-Order
     d. Traverse a tree In-Order 
