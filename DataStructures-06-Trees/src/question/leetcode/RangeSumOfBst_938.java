@@ -50,6 +50,14 @@ public class RangeSumOfBst_938 {
         inorder(root.right);
 
     }
+
+    /**
+     * This is the solution
+     * @param root
+     * @param low
+     * @param high
+     * @return
+     */
     static int rangeSumBST2(TreeNode root, int low, int high) {
         if(root==null){
             return 0;
