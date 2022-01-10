@@ -1,6 +1,9 @@
 package question.algo28;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class Alog28_InvertABinaryTree {
     public static void main(String[] args) {
@@ -31,7 +34,24 @@ public class Alog28_InvertABinaryTree {
         rootNode.right.left = new TreeNode(6);
         rootNode.right.right = new TreeNode(7);
 
+       assertEquals(8,invertTree(rootNode).right.right.right.val);
+       assertEquals(9,invertTree(rootNode).left.left.right.val);
 
+
+
+    }
+    @Test
+    public void test2() {
+        TreeNode rootNode = new TreeNode(1);
+        rootNode.left = new TreeNode(2);
+        rootNode.right = new TreeNode(3);
+        rootNode.left.left = new TreeNode(4);
+        rootNode.left.right = new TreeNode(5);
+        rootNode.left.left.left = new TreeNode(8);
+        rootNode.left.left.right = new TreeNode(9);
+        rootNode.right.left = new TreeNode(6);
+        rootNode.right.right = new TreeNode(7);
+         assertEquals(9,invertTree(rootNode).right.right.left.val);
     }
 
     static TreeNode invertTree(TreeNode root) {
@@ -40,14 +60,13 @@ public class Alog28_InvertABinaryTree {
         if(root==null){
             return root;
         }
-            TreeNode temp = root.right;
-            root.right = root.left;
-            root.left = temp;
 
+        TreeNode temp = root.right;
+        root.right = root.left;
+        root.left = temp;
 
         invertTree(root.right);
         invertTree(root.left);
-
         return root;
     }
 }
