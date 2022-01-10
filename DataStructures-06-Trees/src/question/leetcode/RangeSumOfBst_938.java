@@ -89,6 +89,17 @@ public class RangeSumOfBst_938 {
  */
 
 
+// class TreeNode {
+//    int data;
+//    TreeNode left, right;
+//
+//    static TreeNode newNode(int data) {
+//        TreeNode Node = new TreeNode();
+//        Node.data = data;
+//        Node.left = Node.right = null;
+//        return (Node);
+//    }
+//}
 class TreeNode {
     int val;
     TreeNode left;

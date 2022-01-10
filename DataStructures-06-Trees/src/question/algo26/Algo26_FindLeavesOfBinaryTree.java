@@ -1,4 +1,4 @@
-package question.algo;
+package question.algo26;
 
 
 import org.junit.Assert;
