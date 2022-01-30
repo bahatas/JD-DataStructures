@@ -2,9 +2,10 @@ package question.algo31;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+
+import java.util.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class BinarTreeZigzagLevelOrderTraversal {
 
@@ -20,8 +21,71 @@ public class BinarTreeZigzagLevelOrderTraversal {
         rootNode.left.left.left = new TreeNode(8);
         rootNode.left.left.right = new TreeNode(9);
 
+        assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9), zigzagLevelOrder2(rootNode));
+
+    }
+    @Test
+    public void test2() {
+        TreeNode rootNode = new TreeNode(3);
+        rootNode.left = new TreeNode(9);
+        rootNode.right = new TreeNode(20);
+        rootNode.right.left = new TreeNode(15);
+        rootNode.right.right = new TreeNode(7);
 
 
+        assertEquals(Arrays.asList(3,9,20,15,7), zigzagLevelOrder2(rootNode));
+
+    }
+    public List<List<Integer>> zigzagLevelOrder2(TreeNode root){
+        List<List<Integer>> resultList = new ArrayList<>();
+        if (root == null) return resultList;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        int count= 1;
+        while (queue.size() > 0) {
+            List<Integer> innerList = new ArrayList<>();
+            int size = queue.size();
+
+            for(int i =0; i<size; i++){
+                TreeNode current = queue.poll();
+                innerList.add(current.val);
+                if (current.left != null) queue.add(current.left);
+                if (current.right != null) queue.add(current.right);
+
+            }
+            if(count % 2 ==0){
+                Collections.reverse(innerList);
+            }
+            resultList.add(innerList);
+            count++;
+        }
+        return resultList;
+    }
+    static List<Integer> levelOrder(TreeNode root) {
+
+        if (root == null) return null;
+        List<Integer> list = new ArrayList<>();
+
+
+        Queue<TreeNode> q = new ArrayDeque<>();
+
+        q.add(root);
+
+        while (q.size() > 0) {
+
+            TreeNode currentNode = q.peek();
+            list.add(q.peek().val);
+
+            if (currentNode.left != null) q.add(currentNode.left);
+
+            if (currentNode.right != null) q.add(currentNode.right);
+
+
+            q.poll();
+        }
+        return list;
     }
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 

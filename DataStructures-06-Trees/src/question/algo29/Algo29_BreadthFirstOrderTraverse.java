@@ -29,23 +29,17 @@ public class Algo29_BreadthFirstOrderTraverse {
     static List<Integer> levelOrder(TreeNode root) {
 
         if (root == null) return null;
+
         List<Integer> list = new ArrayList<>();
-
-
         Queue<TreeNode> q = new ArrayDeque<>();
 
         q.add(root);
-
         while (q.size() > 0) {
 
             TreeNode currentNode = q.peek();
             list.add(q.peek().val);
-
             if (currentNode.left != null) q.add(currentNode.left);
-
             if (currentNode.right != null) q.add(currentNode.right);
-
-
             q.poll();
         }
         return list;
