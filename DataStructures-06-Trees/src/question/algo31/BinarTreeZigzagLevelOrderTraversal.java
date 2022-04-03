@@ -40,19 +40,19 @@ public class BinarTreeZigzagLevelOrderTraversal {
         List<List<Integer>> resultList = new ArrayList<>();
         if (root == null) return resultList;
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
 
         int count= 1;
-        while (queue.size() > 0) {
+        while (q.size() > 0) {
             List<Integer> innerList = new ArrayList<>();
-            int size = queue.size();
+            int size = q.size();
 
             for(int i =0; i<size; i++){
-                TreeNode current = queue.poll();
+                TreeNode current = q.poll();
                 innerList.add(current.val);
-                if (current.left != null) queue.add(current.left);
-                if (current.right != null) queue.add(current.right);
+                if (current.left != null) q.add(current.left);
+                if (current.right != null) q.add(current.right);
 
             }
             if(count % 2 ==0){
