@@ -25,10 +25,12 @@ public class RomanToInt {
 //    MCXI--> 1111
 
     public static void main(String[] args) {
-        System.out.println(getRomanInteger("MCMXCIV"));
-        System.out.println(getRomanInteger("MCXI"));
-        System.out.println(getRomanInteger("IV"));
-        System.out.println(getRomanInteger("LVIII"));
+        System.out.println(getRomanInteger2("MCMXCIV"));
+        System.out.println(getRomanInteger2("MCXI"));
+        System.out.println(getRomanInteger2("IV"));
+        System.out.println(getRomanInteger2("LVIII"));
+        System.out.println(getRomanInteger2("CMXCIV"));
+        System.out.println(getRomanInteger2("MMCMLXXXIX"));
     }
 
     public static int getRomanInteger(String roman) {
@@ -57,23 +59,60 @@ public class RomanToInt {
     }
 
     public static int getRomanInteger2(String roman) {
+//assume valid
+        Map<Character, Integer> charIntegerMap =
+                Map.of('I', 1, 'V', 5, 'X', 10, 'L', 50, 'C', 100, 'D', 500, 'M', 1000);
 
-        Map<Character, Integer> charIntegerMap = Map.of('I', 1, 'V', 5, 'X', 10, 'L', 50, 'C', 100, 'D', 500, 'M', 1000);
         int result = charIntegerMap.get(roman.charAt(0));
 
         for (int i = 1; i < roman.length(); i++) {
-
             result += charIntegerMap.get(roman.charAt(i));
-
             int value = charIntegerMap.get(roman.charAt(i));
             int previousValue = charIntegerMap.get(roman.charAt(i - 1));
-
-            if (value > previousValue) {
+            if (value > previousValue) { // OPTIMIZE
                 result -= previousValue * 2;
             }
         }
         return result;
     }
+
+
+    /**
+     * Fatih
+     * @param s
+     * @return
+     */
+        public static int romanToInt(String s) {
+            Map<String, Integer> values = new HashMap<>();
+            values.put("M", 1000);
+            values.put("D", 500);
+            values.put("C", 100);
+            values.put("L", 50);
+            values.put("X", 10);
+            values.put("V", 5);
+            values.put("I", 1);
+            int sum = 0;
+            int i = 0;
+            while (i < s.length()) {
+                String currentSymbol = s.substring(i, i + 1);
+                int currentValue = values.get(currentSymbol);
+                int nextValue = 0;
+                if (i + 1 < s.length()) {
+                    String nextSymbol = s.substring(i + 1, i + 2);
+                    nextValue = values.get(nextSymbol);
+                }
+                if (currentValue < nextValue) { // evaluate both current and next
+                    sum += (nextValue - currentValue);
+                    i += 2; // Double Jump
+                }
+                else {
+                    sum += currentValue;
+                    i += 1; // Single Jump
+                }
+            }
+            return sum;
+        }
+
 }
 
 
