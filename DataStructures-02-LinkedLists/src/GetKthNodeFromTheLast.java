@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class GetKthNodeFromTheLast {
     public static void main(String[] args) {
 
@@ -8,5 +10,7 @@ public class GetKthNodeFromTheLast {
         myLinkedList.insertInOrder(12);
         myLinkedList.printLinkedList();
         System.out.println(myLinkedList.size);
+        LinkedList linkedList = new LinkedList();
+
     }
 }
