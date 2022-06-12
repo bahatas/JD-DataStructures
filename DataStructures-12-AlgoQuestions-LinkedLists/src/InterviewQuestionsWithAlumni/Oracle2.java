@@ -1,4 +1,4 @@
-package InterviewQuestions;
+package InterviewQuestionsWithAlumni;
 
 import java.util.Stack;
 
