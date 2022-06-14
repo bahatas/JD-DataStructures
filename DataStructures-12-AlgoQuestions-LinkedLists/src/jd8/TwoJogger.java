@@ -1,14 +1,27 @@
 package jd8;
 
 import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 public class TwoJogger {
     public static void main(String[] args) {
-        int[] array = {5,3};
+        int[] array1 = {5,3};
         System.out.println(Arrays.toString(nbrOfLaps(5, 3)));
-        System.out.println(Arrays.toString(twoJoggers(array)));
+        System.out.println(Arrays.toString(twoJoggers(array1)));
+
+        ArrayList array = new ArrayList();
+        array.add(new String("st1"));
+        array.add(2);
+        array.add(new TwoJogger());
+
+
+      Vector vektor = new Vector();
+        System.out.println("vektor.capacity() = " + vektor.capacity());
+
+        System.out.println("array = " + array);
     }
 
     public static int[] nbrOfLaps(int x, int y){
@@ -39,6 +52,11 @@ public class TwoJogger {
 
 }
 /**
+ * The least common multiple **(LCM)** of two integers is the smallest positive integer that is a multiple of both.
+ * The greatest common divisor (GCD) of two integers is the largest positive integer dividing both.
+ * The product of the two numbers is the product of the LCM and the GCD.
+ *
+ *
  * Task
  * Your job is to complete the function nbrOfLaps(x, y) that, given the length of the laps for Bob
  * and Charles, finds the number of laps that each jogger has to complete before they meet each
