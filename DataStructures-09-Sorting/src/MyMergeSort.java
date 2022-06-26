@@ -13,7 +13,7 @@ public class MyMergeSort {
         mergeSort(rightArray); // call merge sort recursively for right
         merge(leftArray,rightArray,array);// merge solutions
         List<Integer[]> triplets = new ArrayList<Integer[]>();
-        triplets.toString()
+        triplets.toString();
     }
     private void merge(int[] left, int[] right, int[] result){
         int i=0,j=0,k=0;
