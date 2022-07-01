@@ -3,7 +3,7 @@ package question.oracle;
 
 public class OTree {
 
-    private class Tree {
+    private static class Tree {
         Node root;
 
 
@@ -35,40 +35,39 @@ public class OTree {
         }
 
         void insertRecursive(int value) {
-            Node node = new Node(value);
 
-            insertRecursive(node,value);
+
+            root = insertRecursive(root,value);
 
 
         }
 
         /* A recursive function to
        insert a new key in BST */
-        private Node insertRecursive(Node node,int value)  {
+        private Node insertRecursive(Node root,int value)  {
 
         /* If the tree is empty,
            return a new node */
 
             if (root == null) {
-                root = node;
-                return node;
+                root = new Node(value);
+                return root;
 
             }
             /*Orherwise , recur down the tree */
 
-            if (value < current.value) {
-                current.leftChild = insertRecursive(root.leftChild,value);
-            }else if (value> current.value){
-                current.rightChild = insertRecursive(current.rightChild,value);
+            if (value < root.value) {
+                root.leftChild = insertRecursive(root.leftChild,value);
+            }else if (value> root.value){
+                root.rightChild = insertRecursive(root.rightChild,value);
             }
-
             /* return thr unchanged node pointer  */
-            return node;
+            return root;
         }
 
     }
 
-    private class Node {
+    private static class Node {
 
         Node leftChild;
         Node rightChild;
@@ -84,7 +83,14 @@ public class OTree {
 
     private static class Solution {
         public static void main(String[] args) {
-
+            Tree tree = new Tree();
+            tree.insertRecursive(50);
+            tree.insertRecursive(30);
+            tree.insertRecursive(20);
+            tree.insertRecursive(40);
+            tree.insertRecursive(70);
+            tree.insertRecursive(60);
+            tree.insertRecursive(80);
         }
     }
 
