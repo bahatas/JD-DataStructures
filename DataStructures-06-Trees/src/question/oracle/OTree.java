@@ -1,12 +1,35 @@
 package question.oracle;
 
 
+
 public class OTree {
+    private static class Solution {
+        public static void main(String[] args) {
+            Tree tree = new Tree();
+            tree.insertRecursive(3);
+            tree.insertRecursive(1);
+            tree.insertRecursive(5);
+            tree.insertRecursive(0);
+            tree.insertRecursive(2);
+            tree.insertRecursive(4);
+            tree.insertRecursive(6);
+            tree.insertRecursive(8);
+            tree.insertRecursive(7);
+
+
+
+            System.out.println("tree.lca(4,7) = " + tree.lca(4, 7));
+            System.out.println("tree.lca2(4,7) = " + tree.lca2(tree.root,4, 7));
+        }
+    }
 
     private static class Tree {
         Node root;
 
-
+        /**
+         * basic impl of insert node method
+         * @param value
+         */
         void insertNode(int value) {
             Node tobeInserted = new Node(value);
             Node current = root;
@@ -35,35 +58,76 @@ public class OTree {
         }
 
         void insertRecursive(int value) {
-
-
             root = insertRecursive(root,value);
-
-
         }
 
-        /* A recursive function to
-       insert a new key in BST */
+        /**
+         * A recursive function to insert a new key in BST
+         * @param root
+         * @param value
+         * @return
+         */
         private Node insertRecursive(Node root,int value)  {
 
-        /* If the tree is empty,
-           return a new node */
-
+        /* If the tree is empty, return a new node */
             if (root == null) {
                 root = new Node(value);
                 return root;
 
             }
             /*Orherwise , recur down the tree */
-
             if (value < root.value) {
-                root.leftChild = insertRecursive(root.leftChild,value);
-            }else if (value> root.value){
-                root.rightChild = insertRecursive(root.rightChild,value);
+                root.leftChild = insertRecursive(root.leftChild, value);
+            } else if (value > root.value) {
+                root.rightChild = insertRecursive(root.rightChild, value);
             }
             /* return thr unchanged node pointer  */
             return root;
         }
+
+        /**
+         * lca solution
+         * @param p
+         * @param q
+         * @return
+         */
+        private int lca(int p, int q) {
+            Node current = root;
+            while (current != null) {
+                if (p > current.value && q > current.value) {
+                    //traverse right of sub tree
+                    current = current.rightChild;
+                } else if (p < current.value && q < current.value) {
+                    //traverse left subtree
+                    current = current.leftChild;
+                } else {
+                    return current.value;
+                }
+            }
+            return -1;
+        }
+
+        /**
+         *
+         * @param root
+         * @param p
+         * @param q
+         * @return
+         *
+         * recursive solution of lca
+         */
+        private int lca2(Node root, int p, int q) {
+
+            int rootValue = root.value;
+            if (p > rootValue && q > rootValue) {
+                return lca2(root.rightChild, p, q);
+            } else if (p < rootValue && q < rootValue) {
+                return lca2(root.leftChild, p, q);
+            } else {
+                return root.value;
+            }
+        }
+
 
     }
 
@@ -81,17 +145,5 @@ public class OTree {
         }
     }
 
-    private static class Solution {
-        public static void main(String[] args) {
-            Tree tree = new Tree();
-            tree.insertRecursive(50);
-            tree.insertRecursive(30);
-            tree.insertRecursive(20);
-            tree.insertRecursive(40);
-            tree.insertRecursive(70);
-            tree.insertRecursive(60);
-            tree.insertRecursive(80);
-        }
-    }
 
 }
