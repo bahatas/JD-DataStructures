@@ -1,6 +1,8 @@
 package question.oracle;
 
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class OTree {
     private static class Solution {
@@ -20,6 +22,10 @@ public class OTree {
 
             System.out.println("tree.lca(4,7) = " + tree.lca(4, 7));
             System.out.println("tree.lca2(4,7) = " + tree.lca2(tree.root,4, 7));
+
+//            System.out.println("tree.getPathToNode(7) = " + tree.getPathToNode(7));
+//            System.out.println("tree.getPathToNode(4) = " + tree.getPathToNode(4));
+            System.out.println("tree.getPathToNode2(7) = " + tree.getPathToNode2(tree.root, 7));
         }
     }
 
@@ -128,7 +134,60 @@ public class OTree {
             }
         }
 
+        /**
+         * regular version of find path
+         * @param value
+         * @return
+         */
+        public List<Integer> getPathToNode(int value){
 
+            List<Integer> result = new ArrayList<>();
+            if(root== null){
+                return result;
+            }
+            while(root.value != value){
+                if(value> root.value){
+                    result.add(root.value);
+                    root= root.rightChild;
+                }else if(value< root.value){
+                    result.add(root.value);
+                    root = root.leftChild;
+                }
+                    
+            }
+            result.add(value);
+            return  result;
+        }
+
+        /**
+         * recurseive version of find path of node
+         * @param current
+         * @param value
+         * @return
+         */
+        public List<Integer> getPathToNode2(Node current, int value){
+            List<Integer> result = new ArrayList<>();
+
+            if(root == null){
+                return  result;
+            }
+            getPath(result,current,value);
+            return result;
+        }
+        private boolean getPath(List<Integer> result , Node node, int value){
+            if(node == null){
+                return false;
+            }
+            result.add(node.value);
+            if(node.value == value){
+                return true;
+            }
+            if(getPath(result,node.leftChild,value) || getPath(result, node.rightChild, value)){
+                return true;
+            }
+            result.remove(result.size()-1);
+            return false;
+        }
     }
 
     private static class Node {
