@@ -6,7 +6,9 @@ import java.util.List;
 
 public class OTree {
     private static class Solution {
+
         public static void main(String[] args) {
+
             Tree tree = new Tree();
             tree.insertRecursive(3);
             tree.insertRecursive(1);
